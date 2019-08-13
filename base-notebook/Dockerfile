@@ -70,12 +70,16 @@ RUN mkdir /home/$NB_USER/work && \
 
 # Install conda as jovyan and check the md5 sum provided on the download site
 ENV MINICONDA_VERSION=4.6.14 \
-    CONDA_VERSION=4.7.10
+    CONDA_VERSION=4.7.10 \
+    miniconda_amd64_md5=718259965f234088d785cad1fbd7de03 \
+    miniconda_x86_64_md5=718259965f234088d785cad1fbd7de03 \
+    miniconda_ppc64le_md5=6d3bd64dfc436f38755cde1a3ad40799 \
+    checksum=miniconda_${ARCH}_md5
 
 RUN cd /tmp && \
     export ARCH=$(uname -m) && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh && \
-    echo "6d3bd64dfc436f38755cde1a3ad40799 *Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh" | md5sum -c - && \
+    echo "$checksum *Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh" | md5sum -c - && \
     /bin/bash Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh -f -b -p $CONDA_DIR && \
     rm Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh && \
     echo "conda ${CONDA_VERSION}" >> $CONDA_DIR/conda-meta/pinned && \
