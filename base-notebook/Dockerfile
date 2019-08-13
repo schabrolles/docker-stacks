@@ -3,8 +3,9 @@
 
 # Ubuntu 18.04 (bionic) from 2019-06-12
 # https://github.com/tianon/docker-brew-ubuntu-core/commit/3c462555392cb188830b7c91e29311b5fad90cfe
-ARG BASE_CONTAINER=ubuntu:bionic
-FROM $BASE_CONTAINER
+#ARG BASE_CONTAINER=ubuntu:bionic
+#FROM $BASE_CONTAINER
+FROM ubuntu:bionic
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 ARG NB_USER="jovyan"
