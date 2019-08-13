@@ -75,7 +75,7 @@ ENV MINICONDA_VERSION=4.6.14 \
 RUN cd /tmp && \
     export ARCH=$(uname -m) && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh && \
-    echo "718259965f234088d785cad1fbd7de03 *Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh" | md5sum -c - && \
+    echo "6d3bd64dfc436f38755cde1a3ad40799 *Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh" | md5sum -c - && \
     /bin/bash Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh -f -b -p $CONDA_DIR && \
     rm Miniconda3-${MINICONDA_VERSION}-Linux-${ARCH}.sh && \
     echo "conda ${CONDA_VERSION}" >> $CONDA_DIR/conda-meta/pinned && \
